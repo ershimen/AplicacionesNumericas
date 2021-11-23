@@ -1,0 +1,17 @@
+n=10000;
+p=20;
+i=randi(n,1,p*n);
+j=randi(n,1,p*n);
+C=sparse(i,j,1,n,n);
+niter=1000;
+%spy(C_plus);
+p=0.85;
+delta=(1-p)/n;
+c=sum(C,1);
+k = find(c~=0);
+D=sparse(k,k,1./c(k),n,n);
+%spy(D);
+e=ones(n,1);
+I = speye(n,n);
+x=(I- p*C*D)\e;
+x=x/sum(x);
