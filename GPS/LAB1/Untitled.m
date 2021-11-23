@@ -1,0 +1,12 @@
+clc;clear;
+sp = read_sp3('IGS12651.SP3');
+v = sp.XYZT(3,[1 2 3 4 5 6 7 8],2);
+fprintf('%.3f ',v);
+fprintf('\n');
+dZ = get_difs(v);
+fprintf('%.3f ',dZ);
+fprintf('\n');
+f = 0.1;
+C = get_coefs(f);
+fprintf('%.4f ',C);
+fprintf('\n');
